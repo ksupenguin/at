@@ -11,4 +11,7 @@ public class OpenedPastePage extends AbstractPage {
 
     @Locator(xpath = "//h1[not(@id = 'title')]")
     public Element pasteTitle;
+
+    @Locator("//p[contains(text(), 'expires')]")
+    public Element expirationRow;
 }
