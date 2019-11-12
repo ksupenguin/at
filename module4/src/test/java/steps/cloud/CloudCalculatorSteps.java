@@ -72,8 +72,9 @@ public class CloudCalculatorSteps {
 
     private void checkGPUcheckbox() {
         cloudCalculatorPage.addGPU.waitFor().clickability();
-        Actions actions = new Actions(Driver.getDriver());
-        actions.click(cloudCalculatorPage.addGPU.findElement()).build().perform();
+//        Actions actions = new Actions(Driver.getDriver());
+//        actions.click(cloudCalculatorPage.addGPU.findElement()).build().perform();
+        cloudCalculatorPage.addGPU.click();
     }
 
     private void chooseInstance(String instance) {
@@ -94,7 +95,8 @@ public class CloudCalculatorSteps {
     private void setInstanceCount(String count) {
         cloudCalculatorPage.instancesNum.waitFor().visibility();
         cloudCalculatorPage.instancesNum.click();
-        cloudCalculatorPage.instancesNum.type(count);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(cloudCalculatorPage.instancesNum.findElement(), count).build().perform();
     }
 
     @When("I press '(.+)' button")

@@ -12,7 +12,8 @@
     <artifactId>module4</artifactId>
 
     <properties>
-        <platform>chrome</platform>
+        <platform>grid</platform>
+        <highlight>false</highlight>
     </properties>
 
     <dependencies>
@@ -63,6 +64,24 @@
             <artifactId>joda-time</artifactId>
             <version>2.10.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.openqa.selenium.grid</groupId>
+            <artifactId>selenium-grid</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -76,6 +95,7 @@
                     <perCoreThreadCount>false</perCoreThreadCount>
                     <systemPropertyVariables>
                         <platform>${platform}</platform>
+                        <highlight>${highlight}</highlight>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
