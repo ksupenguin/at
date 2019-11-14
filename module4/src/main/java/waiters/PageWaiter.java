@@ -29,6 +29,7 @@ public class PageWaiter {
     }
 
     public void pageIsLoaded() {
+        Reporter.info("Waiting for page to be loaded");
         new WebDriverWait(Driver.getDriver(), PAGE_TIMEOUT).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }

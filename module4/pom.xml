@@ -12,7 +12,7 @@
     <artifactId>module4</artifactId>
 
     <properties>
-        <platform>grid</platform>
+        <platform>chrome</platform>
         <highlight>false</highlight>
     </properties>
 

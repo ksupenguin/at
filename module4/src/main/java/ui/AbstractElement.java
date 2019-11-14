@@ -46,7 +46,7 @@ public abstract class AbstractElement<T> {
     }
 
     public void click() {
-        Reporter.debug("Clicking element");
+        Reporter.debug("Clicking element: " + getLocator());
         waitFor().visibility();
         findElement().click();
     }

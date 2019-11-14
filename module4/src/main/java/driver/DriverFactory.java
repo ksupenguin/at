@@ -37,7 +37,7 @@ class DriverFactory {
     private static WebDriver getChrome() {
         WebDriverManager.chromedriver().setup();
         Reporter.debug("New Chrome is started");
-        return new ChromeDriver(new ChromeOptions().addArguments("start-maximized"));
+        return new ChromeDriver(new ChromeOptions().addArguments("start-maximized").addArguments("--incognito"));
     }
 
     private static WebDriver getFireFox() {

@@ -7,14 +7,23 @@ import driver.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import pages.yandex.InboxPage;
+import reporter.Reporter;
 
 import java.util.ArrayList;
 
 public class CommonSteps {
 
-    @After
+    @After(order = 9)
     public void quitBrowser() {
         Driver.quit();
+    }
+
+    @After(value = {"@mail"}, order = 10)
+    public void deleteMails() {
+        InboxPage inboxPage = new InboxPage();
+        inboxPage.allCheckbox.click();
+        inboxPage.delete.click();
     }
 
     @Given("'(.+)' url is opened")
@@ -32,6 +41,12 @@ public class CommonSteps {
     public void returnToBrowserTab(String tabNum) {
         switchBrowserTab();
         Driver.getDriver().switchTo().window(new ArrayList<>(Driver.getDriver().getWindowHandles()).get(Integer.valueOf(tabNum) - 1));
+    }
+
+    @When("I refresh page")
+    public void refreshPage() {
+        Reporter.debug("Refreshing page");
+        Driver.getDriver().navigate().refresh();
     }
 
     public void switchBrowserTab() {
