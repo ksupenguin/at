@@ -18,4 +18,27 @@ public class User {
         return password;
     }
 
+    static UserBuilder builder() {
+        return new UserBuilder();
+    }
+
+    public static class UserBuilder {
+        private String login;
+        private String password;
+
+        UserBuilder withLogin(String login) {
+            this.login = login;
+            return this;
+        }
+
+        UserBuilder withPass(String pass) {
+            this.password = pass;
+            return this;
+        }
+
+        User build() {
+            return new User(login, password);
+        }
+    }
+
 }

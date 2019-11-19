@@ -15,9 +15,9 @@ public final class UserProvider {
     }
 
     public static User getUser(String id) {
-        return new User(
-                (property.getProperty(String.format("user_%s_login", id))),
-                (property.getProperty(String.format("user_%s_password", id)))
-        );
+        return User.builder()
+                .withLogin(property.getProperty(String.format("user_%s_login", id)))
+                .withPass(property.getProperty(String.format("user_%s_password", id)))
+                .build();
     }
 }
