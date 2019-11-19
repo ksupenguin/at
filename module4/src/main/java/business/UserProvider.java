@@ -1,7 +1,5 @@
 package business;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 public final class UserProvider {
@@ -10,13 +8,7 @@ public final class UserProvider {
     private static Properties property;
 
     static {
-        try (FileInputStream fis = new FileInputStream(PROPERTY_FILE_LOCATION)) {
-            property = new Properties();
-            property.load(fis);
-
-        } catch (IOException e) {
-            System.err.println("Couldn't not init properties.");
-        }
+        property = PropertyReader.readProperty(PROPERTY_FILE_LOCATION);
     }
 
     private UserProvider() {
