@@ -6,12 +6,12 @@ Feature: Yandex Mail
     And I'm logged in as '<user>' user
     When I create a new mail
     And I choose myself as a recipient
-    And I type 'test' subject
+    And I type '<subject>' subject
     And I send a mail
     When I open Inbox folder
-    Then new email with 'test' subject is displayed
+    Then new email with '<subject>' subject is displayed
 
     Examples:
-      | user  |
-      | Mail  |
-      | Mail2 |
+      | user  | subject |
+      | Mail  | test1   |
+      | Mail2 | test2   |
