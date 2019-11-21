@@ -24,7 +24,7 @@
     </build>
 
     <modules>
-        <module>module3</module>
+        <!--        <module>module3</module>-->
         <module>module4</module>
     </modules>
 </project>

@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Base64;
 
 public class Reporter {
 
@@ -33,10 +35,18 @@ public class Reporter {
         File screen = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(screen, new File("C:\\Users\\Kseniia_Glushkova\\Downloads\\AT_Mentoring\\screenshot.png"));
-            Reporter.info("Screenshot is saved");
+            info("Screenshot is saved");
+            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            String message = "RP_MESSAGE#BASE64#" + new String(Base64.getEncoder().encode(screenshot)) + "#SCREENSHOT";
+            error(message);
+
+            byte[] foo = Files.readAllBytes(new File("C:\\Users\\Kseniia_Glushkova\\Downloads\\AT_Mentoring\\screenshot.png").toPath());
+            String messag1e = "RP_MESSAGE#BASE64#" + new String(Base64.getEncoder().encode(foo)) + "#SCREENSHOT";
+            error(messag1e);
+//            ReportPortal.emitLog("Screenshot: ", "error", Calendar.getInstance().getTime(), screen);
         } catch (IOException e) {
             e.printStackTrace();
-            Reporter.error("Cannot create screenshot");
+            error("Cannot create screenshot");
         }
     }
 }

@@ -26,7 +26,19 @@
         </encoder>
     </appender>
 
-    <root level="debug">
+    <appender name="ReportPortalAppender" class="com.epam.reportportal.logback.appender.ReportPortalAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--    <logger name="binary_data_logger" level="TRACE" additivity="false">-->
+    <!--        <appender-ref ref="ReportPortalAppender"/>-->
+    <!--    </logger>-->
+
+
+    <root level="TRACE">
+        <appender-ref ref="ReportPortalAppender"/>
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
         <appender-ref ref="TIME_BASED_FILE"/>

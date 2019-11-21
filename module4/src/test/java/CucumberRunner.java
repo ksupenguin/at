@@ -13,7 +13,7 @@ import reporter.Reporter;
 import java.io.IOException;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(
+@CucumberOptions(plugin = {"progress", "com.epam.reportportal.cucumber.ScenarioReporter"},
         monochrome = true,
         features = "src/test/resources/features",
         glue = "steps")
