@@ -1,6 +1,5 @@
 Feature: PasteBin
 
-  @once
   Scenario: I can win
     Given 'https://paste.ubuntu.com' url is opened
     When I type "Hello from WebDriver" text in 'Content' textbox

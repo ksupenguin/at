@@ -32,12 +32,7 @@
         </encoder>
     </appender>
 
-    <!--    <logger name="binary_data_logger" level="TRACE" additivity="false">-->
-    <!--        <appender-ref ref="ReportPortalAppender"/>-->
-    <!--    </logger>-->
-
-
-    <root level="TRACE">
+    <root level="DEBUG">
         <appender-ref ref="ReportPortalAppender"/>
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
