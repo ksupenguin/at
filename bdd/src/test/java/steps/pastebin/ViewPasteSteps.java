@@ -16,7 +16,7 @@ public class ViewPasteSteps {
     @Then("paste is posted")
     public void isPastePosted() {
         Reporter.debug("Checking if paste is displayed");
-        Assert.assertFalse("Paste page is not displayed", openedPastePage.pasteText.findElement().isDisplayed());
+        Assert.assertTrue("Paste page is not displayed", openedPastePage.pasteText.findElement().isDisplayed());
     }
 
     @Then("page title is \"(.+)\"")
